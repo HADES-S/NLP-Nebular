@@ -4,6 +4,7 @@ import java.io.CharConversionException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Administrator on 2017/4/6.
@@ -14,7 +15,7 @@ public abstract class State {
     /**
      * 模式串的长度，此字符串所处的深度
      */
-    protected final int depth; Integer
+    protected final int depth;
 
     /**
      * 根节点
@@ -103,6 +104,16 @@ public abstract class State {
      */
     public  abstract State nextStateIgnoreRootState(Character character,boolean ignore);
 
+    public void addEmits(Collection<String> emits){
+        for(String emit:emits){
+            addEmit(emit);
+        }
+    }
 
+    public void addEmit(String emit){
+        if(this.emits==null)
+            this.emits = new TreeSet<String>();
+        this.emits.add(emit);
+    }
 
 }

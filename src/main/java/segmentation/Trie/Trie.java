@@ -61,9 +61,9 @@ public class Trie {
 
         //宽度优先遍历 深度>1的点建立failure表,bfs遍历，给每个节点添加对应的failure
         while (!queue.isEmpty()){
-            State currentState = queue.remove();
+            State currentState = queue.remove();//当前层
             for(Character transition:currentState.getTransitions()){
-                State targetState = currentState.nextState(transition);
+                State targetState = currentState.nextState(transition);//子节点
                 queue.add(targetState);
                 State traceFailureState =  currentState.getFailure();
                 while (traceFailureState.nextState(transition)==null){
@@ -71,7 +71,7 @@ public class Trie {
                 }
                 State newFailureState = traceFailureState.getFailure();
                 targetState.setFailure(newFailureState);
-                targetState.addEmit
+                targetState.addEmits(newFailureState.getEmit());
             }
         }
     }
