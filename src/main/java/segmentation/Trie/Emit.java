@@ -1,10 +1,12 @@
 package segmentation.Trie;
 
+import segmentation.index.Intervalable;
+
 /**
  * Created by Administrator on 2017/4/6.
  * 模式串匹配结果
  */
-public class Emit {
+public class Emit extends implements Intervalable {
 
     /**
      * 匹配到的关键串

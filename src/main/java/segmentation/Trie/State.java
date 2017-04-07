@@ -14,7 +14,7 @@ public abstract class State {
     /**
      * 模式串的长度，此字符串所处的深度
      */
-    protected final int depth;
+    protected final int depth; Integer
 
     /**
      * 根节点
